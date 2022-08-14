@@ -26,13 +26,22 @@ public class BasicItemController {
     return "basic/items";
 
   }
-  @GetMapping("/{itemId}") public String item(@PathVariable Long itemId, Model model) {
+
+  @GetMapping("/{itemId}")
+  public String item(@PathVariable Long itemId, Model model) {
 
     Item item = itemRepository.findById(itemId);
 
     model.addAttribute("item", item);
 
-    return "basic/item"; }
+    return "basic/item";
+  }
+
+  @GetMapping("/add")
+  public String addForm() {
+    return "basic/addForm";
+  }
+
   /**
    * 테스트용 데이터 추가
    */
